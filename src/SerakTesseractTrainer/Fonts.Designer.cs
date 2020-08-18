@@ -166,7 +166,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lstFonts);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::SerakTesseractTrainer.Properties.Resources.icon;
             this.MaximizeBox = false;
             this.Name = "Fonts";
             this.Text = "Fonts";
@@ -175,7 +175,6 @@
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

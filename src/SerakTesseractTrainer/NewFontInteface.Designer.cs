@@ -45,7 +45,7 @@
             // 
             this.grdFont.AllowUserToAddRows = false;
             this.grdFont.AllowUserToDeleteRows = false;
-            this.grdFont.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grdFont.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdFont.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdFont.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -153,7 +153,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdFont)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -168,6 +167,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn fixed_font;
         private System.Windows.Forms.DataGridViewCheckBoxColumn serif;
         private System.Windows.Forms.DataGridViewCheckBoxColumn fraktur;
-
     }
 }

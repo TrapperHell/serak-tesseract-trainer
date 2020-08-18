@@ -28,97 +28,112 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TesseractConfig));
-            this.txttesspath = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtlang = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtTesseractPath = new System.Windows.Forms.TextBox();
+            this.lblTesseractPath = new System.Windows.Forms.Label();
+            this.btnConfig_BrowseTesseractPath = new System.Windows.Forms.Button();
+            this.lblIsoLang = new System.Windows.Forms.Label();
+            this.btnConfig_Save = new System.Windows.Forms.Button();
+            this.txtIsoLang = new System.Windows.Forms.MaskedTextBox();
+            this.epMain = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.epMain)).BeginInit();
             this.SuspendLayout();
             // 
-            // txttesspath
+            // txtTesseractPath
             // 
-            this.txttesspath.Location = new System.Drawing.Point(96, 44);
-            this.txttesspath.Name = "txttesspath";
-            this.txttesspath.Size = new System.Drawing.Size(294, 20);
-            this.txttesspath.TabIndex = 0;
+            this.txtTesseractPath.Location = new System.Drawing.Point(103, 44);
+            this.txtTesseractPath.MaxLength = 300;
+            this.txtTesseractPath.Name = "txtTesseractPath";
+            this.txtTesseractPath.Size = new System.Drawing.Size(287, 20);
+            this.txtTesseractPath.TabIndex = 0;
             // 
-            // label1
+            // lblTesseractPath
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "TesseractPath";
+            this.lblTesseractPath.AutoSize = true;
+            this.lblTesseractPath.Location = new System.Drawing.Point(12, 47);
+            this.lblTesseractPath.Name = "lblTesseractPath";
+            this.lblTesseractPath.Size = new System.Drawing.Size(82, 13);
+            this.lblTesseractPath.TabIndex = 1;
+            this.lblTesseractPath.Text = "Tesseract Path:";
             // 
-            // button1
+            // btnConfig_BrowseTesseractPath
             // 
-            this.button1.Location = new System.Drawing.Point(411, 41);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnConfig_BrowseTesseractPath.Location = new System.Drawing.Point(411, 44);
+            this.btnConfig_BrowseTesseractPath.Name = "btnConfig_BrowseTesseractPath";
+            this.btnConfig_BrowseTesseractPath.Size = new System.Drawing.Size(39, 20);
+            this.btnConfig_BrowseTesseractPath.TabIndex = 1;
+            this.btnConfig_BrowseTesseractPath.Text = "...";
+            this.btnConfig_BrowseTesseractPath.UseVisualStyleBackColor = true;
+            this.btnConfig_BrowseTesseractPath.Click += new System.EventHandler(this.btnConfig_BrowseTesseractPath_Click);
             // 
-            // label2
+            // lblIsoLang
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "ISO-639-2 lang";
+            this.lblIsoLang.AutoSize = true;
+            this.lblIsoLang.Location = new System.Drawing.Point(12, 82);
+            this.lblIsoLang.Name = "lblIsoLang";
+            this.lblIsoLang.Size = new System.Drawing.Size(85, 13);
+            this.lblIsoLang.TabIndex = 1;
+            this.lblIsoLang.Text = "ISO 639-2 Lang:";
             // 
-            // txtlang
+            // btnConfig_Save
             // 
-            this.txtlang.Location = new System.Drawing.Point(96, 79);
-            this.txtlang.Name = "txtlang";
-            this.txtlang.Size = new System.Drawing.Size(294, 20);
-            this.txtlang.TabIndex = 0;
-            this.txtlang.Text = "eng";
+            this.btnConfig_Save.Location = new System.Drawing.Point(152, 129);
+            this.btnConfig_Save.Name = "btnConfig_Save";
+            this.btnConfig_Save.Size = new System.Drawing.Size(134, 23);
+            this.btnConfig_Save.TabIndex = 3;
+            this.btnConfig_Save.Text = "Save";
+            this.btnConfig_Save.UseVisualStyleBackColor = true;
+            this.btnConfig_Save.Click += new System.EventHandler(this.btnConfig_Save_Click);
             // 
-            // button2
+            // txtIsoLang
             // 
-            this.button2.Location = new System.Drawing.Point(152, 129);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.txtIsoLang.Location = new System.Drawing.Point(103, 79);
+            this.txtIsoLang.Mask = "???";
+            this.txtIsoLang.Name = "txtIsoLang";
+            this.txtIsoLang.Size = new System.Drawing.Size(287, 20);
+            this.txtIsoLang.TabIndex = 2;
+            this.txtIsoLang.Text = "eng";
+            this.txtIsoLang.Click += new System.EventHandler(this.txtIsoLang_SetCaretPosition);
+            this.txtIsoLang.Enter += new System.EventHandler(this.txtIsoLang_SetCaretPosition);
+            // 
+            // epMain
+            // 
+            this.epMain.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.epMain.ContainerControl = this;
             // 
             // TesseractConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(480, 172);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtlang);
-            this.Controls.Add(this.txttesspath);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Controls.Add(this.txtIsoLang);
+            this.Controls.Add(this.btnConfig_Save);
+            this.Controls.Add(this.btnConfig_BrowseTesseractPath);
+            this.Controls.Add(this.lblIsoLang);
+            this.Controls.Add(this.lblTesseractPath);
+            this.Controls.Add(this.txtTesseractPath);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = global::SerakTesseractTrainer.Properties.Resources.icon;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TesseractConfig";
-            this.Text = "Project Configuration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.TesseractConfig_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.epMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txttesspath;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtlang;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtTesseractPath;
+        private System.Windows.Forms.Label lblTesseractPath;
+        private System.Windows.Forms.Button btnConfig_BrowseTesseractPath;
+        private System.Windows.Forms.Label lblIsoLang;
+        private System.Windows.Forms.Button btnConfig_Save;
+        private System.Windows.Forms.MaskedTextBox txtIsoLang;
+        private System.Windows.Forms.ErrorProvider epMain;
     }
 }

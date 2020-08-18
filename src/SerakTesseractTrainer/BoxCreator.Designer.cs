@@ -1,6 +1,6 @@
 ﻿namespace SerakTesseractTrainer
 {
-    partial class Box_Creator
+    partial class BoxCreator
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Box_Creator));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BoxCreator));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -135,10 +135,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::SerakTesseractTrainer.Properties.Resources.icon;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Box_Creator";
+            this.Name = "BoxCreator";
             this.Text = "Box Creator";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -146,7 +146,6 @@
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

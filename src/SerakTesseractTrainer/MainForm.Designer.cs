@@ -30,29 +30,29 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openPorjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tesseractBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oCRModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.msMain = new System.Windows.Forms.MenuStrip();
+            this.tsmiFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiNewProject = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiOpenProject = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiTools = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiTesseractOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiOCRMode = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiViewHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tbcMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button7 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbImages = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddTrainImage = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -84,9 +84,9 @@
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.txtisolang = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.menuStrip1.SuspendLayout();
+            this.msMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tbcMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -96,94 +96,93 @@
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // msMain
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.helpToolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(785, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiFile,
+            this.tsmiTools,
+            this.tsmiHelp});
+            this.msMain.Location = new System.Drawing.Point(0, 0);
+            this.msMain.Name = "msMain";
+            this.msMain.Size = new System.Drawing.Size(785, 24);
+            this.msMain.TabIndex = 0;
             // 
-            // fileToolStripMenuItem
+            // tsmiFile
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newProjectToolStripMenuItem,
-            this.openPorjectToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.tsmiFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiNewProject,
+            this.tsmiOpenProject,
+            this.tsmiExit});
+            this.tsmiFile.Name = "tsmiFile";
+            this.tsmiFile.Size = new System.Drawing.Size(37, 20);
+            this.tsmiFile.Text = "File";
             // 
-            // newProjectToolStripMenuItem
+            // tsmiNewProject
             // 
-            this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.newProjectToolStripMenuItem.Text = "New project";
-            this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
+            this.tsmiNewProject.Name = "tsmiNewProject";
+            this.tsmiNewProject.Size = new System.Drawing.Size(143, 22);
+            this.tsmiNewProject.Text = "New Project";
+            this.tsmiNewProject.Click += new System.EventHandler(this.tsmiNewProject_Click);
             // 
-            // openPorjectToolStripMenuItem
+            // tsmiOpenProject
             // 
-            this.openPorjectToolStripMenuItem.Name = "openPorjectToolStripMenuItem";
-            this.openPorjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.openPorjectToolStripMenuItem.Text = "Open Project";
-            this.openPorjectToolStripMenuItem.Click += new System.EventHandler(this.openPorjectToolStripMenuItem_Click);
+            this.tsmiOpenProject.Name = "tsmiOpenProject";
+            this.tsmiOpenProject.Size = new System.Drawing.Size(143, 22);
+            this.tsmiOpenProject.Text = "Open Project";
+            this.tsmiOpenProject.Click += new System.EventHandler(this.openPorjectToolStripMenuItem_Click);
             // 
-            // exitToolStripMenuItem
+            // tsmiExit
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.tsmiExit.Name = "tsmiExit";
+            this.tsmiExit.Size = new System.Drawing.Size(143, 22);
+            this.tsmiExit.Text = "Exit";
+            this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
-            // helpToolStripMenuItem
+            // tsmiTools
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tesseractBinaryToolStripMenuItem,
-            this.oCRModeToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.helpToolStripMenuItem.Text = "Option";
+            this.tsmiTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiTesseractOptions,
+            this.tsmiOCRMode});
+            this.tsmiTools.Name = "tsmiTools";
+            this.tsmiTools.Size = new System.Drawing.Size(47, 20);
+            this.tsmiTools.Text = "Tools";
             // 
-            // tesseractBinaryToolStripMenuItem
+            // tsmiTesseractOptions
             // 
-            this.tesseractBinaryToolStripMenuItem.Name = "tesseractBinaryToolStripMenuItem";
-            this.tesseractBinaryToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.tesseractBinaryToolStripMenuItem.Text = "TesseractOption";
-            this.tesseractBinaryToolStripMenuItem.Click += new System.EventHandler(this.tesseractOptionclick);
+            this.tsmiTesseractOptions.Name = "tsmiTesseractOptions";
+            this.tsmiTesseractOptions.Size = new System.Drawing.Size(167, 22);
+            this.tsmiTesseractOptions.Text = "Tesseract Options";
+            this.tsmiTesseractOptions.Click += new System.EventHandler(this.tsmiTesseractOptions_Click);
             // 
-            // oCRModeToolStripMenuItem
+            // tsmiOCRMode
             // 
-            this.oCRModeToolStripMenuItem.Name = "oCRModeToolStripMenuItem";
-            this.oCRModeToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.oCRModeToolStripMenuItem.Text = "OCR Mode";
-            this.oCRModeToolStripMenuItem.Click += new System.EventHandler(this.oCRModeToolStripMenuItem_Click);
+            this.tsmiOCRMode.Name = "tsmiOCRMode";
+            this.tsmiOCRMode.Size = new System.Drawing.Size(167, 22);
+            this.tsmiOCRMode.Text = "OCR Mode";
+            this.tsmiOCRMode.Click += new System.EventHandler(this.tsmiOCRMode_Click);
             // 
-            // helpToolStripMenuItem1
+            // tsmiHelp
             // 
-            this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.helpToolStripMenuItem2});
-            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem1.Text = "Help";
+            this.tsmiHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiViewHelp,
+            this.tsmiAbout});
+            this.tsmiHelp.Name = "tsmiHelp";
+            this.tsmiHelp.Size = new System.Drawing.Size(44, 20);
+            this.tsmiHelp.Text = "Help";
             // 
-            // aboutToolStripMenuItem
+            // tsmiViewHelp
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.aboutToolStripMenuItem.Text = "Help";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.HelpMenuStripClick);
+            this.tsmiViewHelp.Name = "tsmiViewHelp";
+            this.tsmiViewHelp.Size = new System.Drawing.Size(127, 22);
+            this.tsmiViewHelp.Text = "View Help";
+            this.tsmiViewHelp.Click += new System.EventHandler(this.tsmiViewHelp_Click);
             // 
-            // helpToolStripMenuItem2
+            // tsmiAbout
             // 
-            this.helpToolStripMenuItem2.Name = "helpToolStripMenuItem2";
-            this.helpToolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
-            this.helpToolStripMenuItem2.Text = "About";
-            this.helpToolStripMenuItem2.Click += new System.EventHandler(this.AboutMenuStripClicked);
+            this.tsmiAbout.Name = "tsmiAbout";
+            this.tsmiAbout.Size = new System.Drawing.Size(127, 22);
+            this.tsmiAbout.Text = "About";
+            this.tsmiAbout.Click += new System.EventHandler(this.tsmiAbout_Click);
             // 
             // toolStrip1
             // 
@@ -200,17 +199,17 @@
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Image = global::SerakTesseractTrainer.Properties.Resources.AddFile;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "New Project";
-            this.toolStripButton1.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
+            this.toolStripButton1.Click += new System.EventHandler(this.tsmiNewProject_Click);
             // 
             // toolStripButton2
             // 
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.Image = global::SerakTesseractTrainer.Properties.Resources.OpenFolder;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
@@ -220,36 +219,35 @@
             // toolStripButton3
             // 
             this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.Image = global::SerakTesseractTrainer.Properties.Resources.Text;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "OCR Mode";
-            this.toolStripButton3.Click += new System.EventHandler(this.oCRModeToolStripMenuItem_Click);
+            this.toolStripButton3.Click += new System.EventHandler(this.tsmiOCRMode_Click);
             // 
-            // tabControl1
+            // tbcMain
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbcMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Enabled = false;
-            this.tabControl1.Location = new System.Drawing.Point(0, 52);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(785, 474);
-            this.tabControl1.TabIndex = 2;
+            this.tbcMain.Controls.Add(this.tabPage1);
+            this.tbcMain.Controls.Add(this.tabPage2);
+            this.tbcMain.Controls.Add(this.tabPage3);
+            this.tbcMain.Location = new System.Drawing.Point(0, 52);
+            this.tbcMain.Name = "tbcMain";
+            this.tbcMain.SelectedIndex = 0;
+            this.tbcMain.Size = new System.Drawing.Size(785, 474);
+            this.tbcMain.TabIndex = 2;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.button7);
-            this.tabPage1.Controls.Add(this.listBox1);
+            this.tabPage1.Controls.Add(this.lbImages);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnAddTrainImage);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -270,17 +268,17 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.removeNode);
             // 
-            // listBox1
+            // lbImages
             // 
-            this.listBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(302, 22);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(467, 402);
-            this.listBox1.TabIndex = 1;
+            this.lbImages.BackColor = System.Drawing.SystemColors.Info;
+            this.lbImages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbImages.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbImages.FormattingEnabled = true;
+            this.lbImages.ItemHeight = 16;
+            this.lbImages.Location = new System.Drawing.Point(302, 22);
+            this.lbImages.Name = "lbImages";
+            this.lbImages.Size = new System.Drawing.Size(467, 402);
+            this.lbImages.TabIndex = 1;
             // 
             // button4
             // 
@@ -318,17 +316,17 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.defineFontProperties);
             // 
-            // button1
+            // btnAddTrainImage
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(19, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(257, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "1. Add Train Image";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.AddImagesToProject);
+            this.btnAddTrainImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTrainImage.Location = new System.Drawing.Point(19, 22);
+            this.btnAddTrainImage.Name = "btnAddTrainImage";
+            this.btnAddTrainImage.Size = new System.Drawing.Size(257, 34);
+            this.btnAddTrainImage.TabIndex = 0;
+            this.btnAddTrainImage.Text = "1. Add Train Image";
+            this.btnAddTrainImage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddTrainImage.UseVisualStyleBackColor = true;
+            this.btnAddTrainImage.Click += new System.EventHandler(this.btnAddTrainImage_Click);
             // 
             // tabPage2
             // 
@@ -343,8 +341,8 @@
             // 
             // tabControl2
             // 
-            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
@@ -554,10 +552,10 @@
             // 
             this.lblPercent.AutoSize = true;
             this.lblPercent.Enabled = false;
-            this.lblPercent.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPercent.Location = new System.Drawing.Point(399, 408);
             this.lblPercent.Name = "lblPercent";
-            this.lblPercent.Size = new System.Drawing.Size(31, 23);
+            this.lblPercent.Size = new System.Drawing.Size(35, 24);
             this.lblPercent.TabIndex = 5;
             this.lblPercent.Text = "0%";
             // 
@@ -662,23 +660,23 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 526);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(785, 525);
+            this.Controls.Add(this.tbcMain);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.msMain);
+            this.Icon = global::SerakTesseractTrainer.Properties.Resources.icon;
+            this.MainMenuStrip = this.msMain;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(801, 564);
             this.MinimumSize = new System.Drawing.Size(801, 564);
             this.Name = "MainForm";
-            this.Text = "Serak Trainer For Tesseract 3.0X";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.msMain.ResumeLayout(false);
+            this.msMain.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tbcMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
@@ -692,31 +690,30 @@
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openPorjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip msMain;
+        private System.Windows.Forms.ToolStripMenuItem tsmiFile;
+        private System.Windows.Forms.ToolStripMenuItem tsmiNewProject;
+        private System.Windows.Forms.ToolStripMenuItem tsmiOpenProject;
+        private System.Windows.Forms.ToolStripMenuItem tsmiExit;
+        private System.Windows.Forms.ToolStripMenuItem tsmiTools;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tbcMain;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddTrainImage;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem tesseractBinaryToolStripMenuItem;
+        private System.Windows.Forms.ListBox lbImages;
+        private System.Windows.Forms.ToolStripMenuItem tsmiHelp;
+        private System.Windows.Forms.ToolStripMenuItem tsmiTesseractOptions;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button btncreateNew;
@@ -740,10 +737,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.TextBox txtisolang;
-        private System.Windows.Forms.ToolStripMenuItem oCRModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiOCRMode;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem tsmiViewHelp;
+        private System.Windows.Forms.ToolStripMenuItem tsmiAbout;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ProgressBar progPercent;
         private System.Windows.Forms.Label lblPercent;

@@ -1,60 +1,137 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
+using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace SerakTesseractTrainer
 {
     public partial class MainForm : Form
     {
-        string[] config = new string[2];
+        TTProject project = null;
+
         TessMain ts = new TessMain();
-        //Fonts fontwind;
         NewFontInteface fnt;
+
         public MainForm()
         {
-            InitializeComponent();    
+            InitializeComponent();
+
+            this.Text = Configuration.ApplicationName;
         }
 
-        private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            ts.createNewproject();
-            this.Text = "Serak Trainer For Tesseract 3.0X -" + TessMain.projectFile;
-            if (!(TessMain.projectFolder==null))
+            TesseractConfigHelper.LoadConfigurationFromFile();
+
+            txtisolang.Text = Configuration.IsoLang;
+        }
+
+        #region MenuStrip Items
+
+        #region File
+
+        private void tsmiNewProject_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                tabControl1.Enabled = true;
+                sfd.Filter = "TrapperHell's Tesseract Trainer Project (*.ttp)| *.ttp";
+                sfd.DefaultExt = "ttp";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    project = TTProject.CreateNewProject(sfd.FileName);
+
+                    if (project != null && !String.IsNullOrEmpty(project.Location))
+                        this.Text = String.Format("{0} - {1} ({2})", project.Name, Configuration.ApplicationName, project.Location);
+
+                    ClearUI();
+                }
             }
-            listBox1.Items.Clear();
         }
-        private void AddImagesToProject(object sender, EventArgs e)
+
+        private void tsmiExit_Click(object sender, EventArgs e)
         {
-            ts.addimages();
-            listBox1.Items.Clear();
-            foreach (var item in TessMain.images)
-	        {
-                listBox1.Items.Add(item.ToString());
-	        }            
+            Environment.Exit(0);
         }
+
+        #endregion
+
+        #region Tools
+
+        private void tsmiTesseractOptions_Click(object sender, EventArgs e)
+        {
+            new TesseractConfig().ShowDialog();
+        }
+
+        private void tsmiOCRMode_Click(object sender, EventArgs e)
+        {
+            tbcMain.SelectedIndex = 2;
+        }
+
+        #endregion
+
+        #region Help
+
+        private void tsmiViewHelp_Click(object sender, EventArgs e)
+        {
+            // TODO
+        }
+
+        private void tsmiAbout_Click(object sender, EventArgs e)
+        {
+            new AboutBox().ShowDialog();
+        }
+
+        #endregion
+
+        #endregion
+
+        private void ClearUI()
+        {
+            lbImages.Items.Clear();
+        }
+
+        #region Train Tesseract
+
+        private void btnAddTrainImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofdImages = new OpenFileDialog())
+            {
+                ofdImages.Filter = "Images|*.bmp;*.gif;*.jpeg;*.jpg;*.png;*.tif;*.tiff";
+                ofdImages.Multiselect = true;
+
+                if (ofdImages.ShowDialog() == DialogResult.OK)
+                {
+                    lbImages.Items.Clear();
+
+                    string[] imagePaths = ofdImages.FileNames;
+
+                    foreach (string imagePath in imagePaths)
+                    {
+                        project.CopyImageFile(imagePath);
+
+                        lbImages.Items.Add(Path.GetFileName(imagePath));
+                    }
+                }
+            }
+        }
+
+        #endregion
 
         private void openPorjectToolStripMenuItem_Click(object sender, EventArgs e)
-        {   
-            ts.openProject();
-            if (!(TessMain.projectFolder == null))
-            {
-                tabControl1.Enabled = true;
-            }
-            listBox1.Items.Clear();
+        {
+            string projectName = ts.openProject();
+
+            if (String.IsNullOrEmpty(projectName))
+                this.Text = String.Format("{0} - {1}", Configuration.ApplicationName, projectName);
+
+            lbImages.Items.Clear();
             foreach (var item in TessMain.images)
             {
-                listBox1.Items.Add(item.ToString());
+                lbImages.Items.Add(item.ToString());
             }
-            this.Text = "Serak Trainer For Tesseract 3.0X -" + TessMain.projectFile;
+
             Thread t = new Thread(Loaddictionaries);
             t.Priority = ThreadPriority.Lowest;
             t.Start();
@@ -86,51 +163,17 @@ namespace SerakTesseractTrainer
         {
             //fontwind = new Fonts();
             //fontwind.Show();
-            fnt= new NewFontInteface();
+            fnt = new NewFontInteface();
             fnt.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             ts.TrainTesseract();
-            MessageBox.Show("Training Completed","Training Hopefully Completed Succesfully",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Training Completed", "Training Hopefully Completed Succesfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void tesseractOptionclick(object sender, EventArgs e)
-        {
-            TesseractConfig option = new TesseractConfig();
-            option.Show();
-        }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            if (!(TessMain.projectFolder==null))
-            {
-                tabControl1.Enabled = true;
-            }
-            if (File.Exists(Environment.CurrentDirectory.ToString() + '\\' + "Config.cfg"))
-            {
-                try
-                {
-                    config = File.ReadAllLines(Environment.CurrentDirectory.ToString() + '\\' + "Config.cfg");
-                    ShellExcutor.tesseractlocation = config[0];
-                    ShellExcutor.isolang = config[1];
-                    txtisolang.Text = config[1];
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Garbage Congiguration File","Error when trying to Load Configuration File");
-                    goto outofexception;
-                }
-            outofexception: ;
-                //continue excution;
-            }
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -149,13 +192,13 @@ namespace SerakTesseractTrainer
         {
             OpenFileDialog file = new OpenFileDialog();
             file.Filter = "Text Files(*.txt)|*.txt";
-            if (file.ShowDialog()==DialogResult.OK)
+            if (file.ShowDialog() == DialogResult.OK)
             {
-                txtfreqwods.Lines = File.ReadAllLines(file.FileName,Encoding.UTF8);
+                txtfreqwods.Lines = File.ReadAllLines(file.FileName, Encoding.UTF8);
                 ts.browsefreqwords(file.FileName);
                 txtfreqwods.Enabled = true;
             }
-            
+
         }
 
         private void browseDictionary(object sender, EventArgs e)
@@ -168,7 +211,7 @@ namespace SerakTesseractTrainer
                 ts.browseDictionary(file.FileName);
                 txtDictionary.Enabled = true;
             }
-            
+
         }
 
         private void btnCreateNewDiction_Click(object sender, EventArgs e)
@@ -194,7 +237,7 @@ namespace SerakTesseractTrainer
                 ts.browseUnicharAmbig(file.FileName);
                 txtunicharambig.Enabled = true;
             }
-            
+
         }
 
         private void btncreateunichar_Click(object sender, EventArgs e)
@@ -219,7 +262,7 @@ namespace SerakTesseractTrainer
         {
             OpenFileDialog file = new OpenFileDialog();
             file.Filter = "Image Files(*.jpg,*.png,*.tiff,*.tif,*.bmp)|*.jpg;*.png;*.tiff;*.tif;*.bmp";
-            if (file.ShowDialog()==DialogResult.OK)
+            if (file.ShowDialog() == DialogResult.OK)
             {
                 txtLocation.Text = file.FileName;
             }
@@ -227,9 +270,9 @@ namespace SerakTesseractTrainer
 
         private void recognize(object sender, EventArgs e)
         {
-            if (txtLocation.Text!=null && txtisolang.Text!=null)
+            if (txtLocation.Text != null && txtisolang.Text != null)
             {
-                string[] words = ts.recognizeimage(txtLocation.Text,txtisolang.Text);
+                string[] words = ts.recognizeimage(txtLocation.Text, txtisolang.Text);
                 txtRecognizedWord.Lines = words;
                 if (File.Exists(txtLocation.Text.Substring(0, txtLocation.Text.LastIndexOf('\\')) + @"\output.txt"))
                 {
@@ -243,30 +286,13 @@ namespace SerakTesseractTrainer
 
         }
 
-        private void oCRModeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tabControl1.Enabled = true;
-            tabControl1.SelectedIndex = 2;
-        }
-
-        private void HelpMenuStripClick(object sender, EventArgs e)
-        {
-            //TODO:help
-        }
-
-        private void AboutMenuStripClicked(object sender, EventArgs e)
-        {
-            AboutBox ab = new AboutBox();
-            ab.Show();
-        }
-
         private void button8_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
             file.Filter = "Text File(*.txt)|*.txt";
-            if (file.ShowDialog()==DialogResult.OK)
+            if (file.ShowDialog() == DialogResult.OK)
             {
-                bool fileloadedSuccesfully=ts.BrowseRatingWord(file.FileName,txtRecognizedWord.Lines);
+                bool fileloadedSuccesfully = ts.BrowseRatingWord(file.FileName, txtRecognizedWord.Lines);
                 if (fileloadedSuccesfully)
                 {
                     btnRate.Enabled = true;
@@ -277,15 +303,15 @@ namespace SerakTesseractTrainer
         float prog;
         private void btnRate_Click(object sender, EventArgs e)
         {
-            prog = 0.0f;        
-            score= ts.returnScore();
+            prog = 0.0f;
+            score = ts.returnScore();
             timer1.Enabled = true;
             timer1.Start();
             timer1.Tick += timer1_Tick;     //A little bit of animation wont kill us !!! lol
         }
         void timer1_Tick(object sender, EventArgs e)
         {
-            prog=(float)Math.Round(prog += 0.3f,2);
+            prog = (float)Math.Round(prog += 0.3f, 2);
             progPercent.Value = (int)prog;
             lblPercent.Text = prog + "%";
             if (prog >= score)
@@ -298,16 +324,16 @@ namespace SerakTesseractTrainer
 
         private void removeNode(object sender, EventArgs e)
         {
-            DialogResult rs=MessageBox.Show("Are You sure You Want To Remove This Item?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (rs==DialogResult.Yes)
+            DialogResult rs = MessageBox.Show("Are You sure You Want To Remove This Item?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
             {
-                ts.removeItem(listBox1.SelectedIndex);
-                listBox1.Items.Clear();
+                ts.removeItem(lbImages.SelectedIndex);
+                lbImages.Items.Clear();
                 foreach (string item in TessMain.images)
                 {
-                    listBox1.Items.Add(item);
+                    lbImages.Items.Add(item);
                 }
-            }  
+            }
         }
     }
 }
