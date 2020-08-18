@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerakTesseractTrainer", "SerakTesseractTrainer\SerakTesseractTrainer.csproj", "{04699EFA-8926-4BA2-AE94-5E486579E2D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesseractTrainer.WPF", "TesseractTrainer.WPF\TesseractTrainer.WPF.csproj", "{29998470-C225-468F-8385-3B899EDDB0B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,8 +17,15 @@ Global
 		{04699EFA-8926-4BA2-AE94-5E486579E2D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04699EFA-8926-4BA2-AE94-5E486579E2D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04699EFA-8926-4BA2-AE94-5E486579E2D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29998470-C225-468F-8385-3B899EDDB0B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29998470-C225-468F-8385-3B899EDDB0B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29998470-C225-468F-8385-3B899EDDB0B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29998470-C225-468F-8385-3B899EDDB0B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {729BADAE-4E97-4663-94F1-91E6E9256D11}
 	EndGlobalSection
 EndGlobal
